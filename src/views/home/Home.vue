@@ -1,16 +1,22 @@
 <template>
   <div id="home" class="wrapper">
-    <div>这是主页</div>
+    <nav-bar class="home-nav">
+      <p slot="left">返回</p>
+      <p slot="center">购物商场</p>
+      <p slot="right">没有用</p>
+    </nav-bar>
+
+
   </div>
 </template>
 
 <script>
-
-
+  import NavBar from 'components/common/navbar/NavBar'
+  import {getHomeData} from 'network/home'
   export default {
     name: "Home",
     components: {
-
+      NavBar
     },
     data() {
       return {
@@ -25,6 +31,17 @@
         isShowBackTop: false
       }
     },
+    /*在创建组件成功的时候，就需要马上初始化数据，所以应该使用生命周期的create*/
+    created() {
+      //1.请求多个数据
+      getHomeData().then(res => {
+        console.log(res);
+        this.banners = res.data.banner;
+        this.recommends = res.data.recommend;
+      }).catch(err => {
+        console.log(err);
+      })
+    }
 
   }
 </script>
