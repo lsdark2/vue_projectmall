@@ -5,18 +5,19 @@
       <p slot="center">购物商场</p>
       <p slot="right">没有用</p>
     </nav-bar>
-
+    <home-swiper :banners="banners"></home-swiper>
 
   </div>
 </template>
 
 <script>
   import NavBar from 'components/common/navbar/NavBar'
+  import HomeSwiper from  './childComps/HomeSwiper'
   import {getHomeData} from 'network/home'
   export default {
     name: "Home",
     components: {
-      NavBar
+      NavBar,HomeSwiper
     },
     data() {
       return {
@@ -36,8 +37,8 @@
       //1.请求多个数据
       getHomeData().then(res => {
         console.log(res);
-        this.banners = res.data.banner;
-        this.recommends = res.data.recommend;
+        this.banners = res.data.banner.list;
+        this.recommends = res.data.recommend.list;
       }).catch(err => {
         console.log(err);
       })
