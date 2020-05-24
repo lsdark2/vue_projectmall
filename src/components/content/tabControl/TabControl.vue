@@ -1,4 +1,5 @@
 <template>
+  <!--这个是中间的精选，新款，的tabbar控制组件，控制其显示文字显示样式-->
   <div class="tab-control">
     <div v-for="(item, index) in titles"
          class="tab-control-item"

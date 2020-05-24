@@ -1,4 +1,5 @@
 <template>
+  <!--这个是底部控制其显示 首页，分类的tabbar-->
   <tab-bar>
     <tab-bar-item path="/home">
       <img slot="item-icon" src="~assets/img/tabbar/home.svg" alt="">
