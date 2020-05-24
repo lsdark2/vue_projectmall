@@ -3,7 +3,7 @@
     <nav-bar class="home-nav">
       <p slot="left">返回</p>
       <p slot="center">购物商场</p>
-      <p slot="right">暂时</p>
+      <p slot="right">暂时啊</p>
     </nav-bar>
 
     <!--  这里轮播的是banners的数据-->
