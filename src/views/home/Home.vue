@@ -5,15 +5,18 @@
       <p slot="center">购物商场</p>
       <p slot="right">没有用</p>
     </nav-bar>
-    <home-swiper :banners="banners"></home-swiper>
 
+    <!--  这里轮播的是banners的数据-->
+    <home-swiper :banners="banners"></home-swiper>
   </div>
 </template>
 
 <script>
   import NavBar from 'components/common/navbar/NavBar'
-  import HomeSwiper from  './childComps/HomeSwiper'
+  import HomeSwiper from './childComps/HomeSwiper'
   import {getHomeData} from 'network/home'
+
+
   export default {
     name: "Home",
     components: {
