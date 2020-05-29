@@ -15,6 +15,8 @@
     <!--这个是流行，新款，精选标题-->
     <tab-control :titles="['流行','新款','精选']" @tabClick="tbs"></tab-control>
     <goods-list :goodsList="showGoodsList"></goods-list>
+    <top @click.native="topClick"></top>
+    <img src="ss" alt="">
   </div>
 </template>
 
@@ -29,8 +31,11 @@
   import FeatureView from './childComps/FeatureView'
   /*主页分类滚动*/
   import TabControl from 'components/content/tabControl/TabControl'
+  /*展示top按钮*/
+  import Top from 'components/content/backTop/BackTop'
   /*商品展示*/
-  import  GoodsList from 'components/content/goods/GoodsList'
+  import GoodsList from 'components/content/goods/GoodsList'
+  /**/
   import {getHomeData, getHomeGoods} from 'network/home'
 
 
@@ -42,7 +47,8 @@
       RecommendView,
       FeatureView,
       TabControl,
-      GoodsList
+      GoodsList,
+      Top
     },
     data() {
       return {
@@ -74,8 +80,8 @@
         return  this.goods[this.currentType].list
       }
     },
-    methods:{
-      getHomeDatas(){
+    methods: {
+      getHomeDatas() {
         getHomeData().then(res => {
           // console.log(res);
           this.banners = res.data.banner.list;
@@ -84,15 +90,18 @@
           console.log(err);
         })
       },
+      topClick() {
+        alert("hello")
+      },
 
       //请求个性数据
-      getHomeGoodsDatas(type){
-        const page=this.goods[type].page+1;
-        getHomeGoods(type,page).then(res=>{
+      getHomeGoodsDatas(type) {
+        const page = this.goods[type].page + 1;
+        getHomeGoods(type, page).then(res => {
           console.log(res);
           this.goods[type].list.push(...res.data.list)
-          this.goods[type].page+=1;
-        }).catch(err=>{
+          this.goods[type].page += 1;
+        }).catch(err => {
           console.log(err);
         })
       },
@@ -110,7 +119,8 @@
         }
       }
 
-    }
+    },
+
 
   }
 

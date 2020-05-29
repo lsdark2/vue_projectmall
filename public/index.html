@@ -6,6 +6,28 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title>vue-项目商场</title>
+    <script>
+      let times = null
+      for (let i = 0; i < 10; i++) {
+        if (times != null) {
+          clearTimeout(times)
+        }
+        times = setTimeout(function () {
+          console.log("hello")
+        }, 1000);
+        // times=null
+        console.log("sksksksks")
+      }
+      //timeout是setTimeOut函数的返回值，每个函数setTimout的返回值是不同的
+      //可以配合clearTime来清除定时函数
+      // clearTimeout(timeout)
+      // alert(timeout)
+      let num;
+      if (num) {
+        console.log('hello')
+      }
+      console.log('============')
+    </script>
   </head>
   <body>
     <noscript>
