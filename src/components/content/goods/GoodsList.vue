@@ -11,16 +11,22 @@
   import  GoodsListItem from './GoodsListItem'
     export default {
         name: "GoodsList",
-      props:{
-        goodsList:{
-          type:Array,
-          default(){
-            return[]
+      props: {
+        goodsList: {
+          type: Array,
+          default() {
+            return []
           }
         }
       },
-      components:{
+      components: {
         GoodsListItem
+      },
+      activated() {
+        console.log("进入商品页了");
+      },
+      deactivated() {
+        console.log("离开商品列表页");
       }
     }
 </script>

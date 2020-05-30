@@ -1,7 +1,10 @@
 <template>
   <div id="app" class="wrapper">
 
-    <router-view/>
+
+    <keep-alive :exclude="exclude">
+      <router-view/>
+    </keep-alive>
     <main-tab-bar/>
   </div>
 </template>
@@ -11,6 +14,11 @@
 
   export default {
     name: 'app',
+    data() {
+      return {
+        exclude: ['GoodsDetail'],
+      }
+    },
     components: {
       MainTabBar
     }

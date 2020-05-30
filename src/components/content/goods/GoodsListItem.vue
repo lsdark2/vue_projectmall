@@ -1,6 +1,6 @@
 <template>
-  <div class="goods-item">
-      <img :src="goodsItem.show.img" alt="NonePic">
+  <div class="goods-item" @click="itemClick">
+    <img :src="goodsItem.show.img" alt="NonePic">
     <div class="goods-info">
       <p v-text="goodsItem.title"></p>
       <span v-text="goodsItem.price" class="price"></span>
@@ -11,15 +11,22 @@
 </template>
 
 <script>
+
+
   export default {
     name: "GoodsListItem",
     props: {
       goodsItem: {
         type: Object,
         default() {
-          return {
-          }
+          return {}
         }
+      }
+    },
+    methods: {
+      itemClick() {
+        this.$router.push('/detail/' + this.goodsItem.iid).catch(error => {
+        })
       }
     }
   }
@@ -31,6 +38,7 @@
     position: relative;
 
     width: 48%;
+    cursor: pointer;
   }
 
   .goods-item img {

@@ -91,7 +91,7 @@
         })
       },
       topClick() {
-        alert("hello")
+        this.getHomeGoodsDatas(this.currentType)
       },
 
       //请求个性数据
